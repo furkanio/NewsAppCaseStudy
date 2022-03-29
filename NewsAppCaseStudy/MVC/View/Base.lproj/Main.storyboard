@@ -12,7 +12,7 @@
         <!--Favorites-->
         <scene sceneID="vHz-YJ-p11">
             <objects>
-                <viewController id="kL5-D8-IYl" customClass="VC_NewDetail" customModule="NewsAppCaseStudy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="VC_FavoriteNews" id="kL5-D8-IYl" customClass="VC_FavoriteNews" customModule="NewsAppCaseStudy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yYs-A5-m4g">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -37,6 +37,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Favorites" id="X29-2o-rSE"/>
                     <connections>
+                        <outlet property="tableView" destination="CJm-8Y-eUC" id="gdR-9Q-tf0"/>
                         <segue destination="ILY-EK-5ov" kind="show" identifier="toDetailVCFavs" id="fu1-bf-dd0"/>
                     </connections>
                 </viewController>
@@ -80,21 +81,26 @@
             </objects>
             <point key="canvasLocation" x="2576.811594202899" y="-163.39285714285714"/>
         </scene>
-        <!--View Controller-->
+        <!--New Detail-->
         <scene sceneID="b0G-nr-zOD">
             <objects>
-                <viewController id="ILY-EK-5ov" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="VC_NewDetail" id="ILY-EK-5ov" customClass="VC_NewDetail" customModule="NewsAppCaseStudy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FQH-cc-QGn">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bbG-qd-bSX">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bbG-qd-bSX">
                                 <rect key="frame" x="20" y="88" width="374" height="249"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="249" id="BhJ-Mv-dui"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Lorem ipsum dolor sit er elit asdad asdad" translatesAutoresizingMaskIntoConstraints="NO" id="VbQ-2g-KMw">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Lorem ipsum dolor sit er elit asdad asdad asd" translatesAutoresizingMaskIntoConstraints="NO" id="VbQ-2g-KMw">
                                 <rect key="frame" x="20" y="345" width="374" height="53"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
@@ -140,11 +146,11 @@
                                     <constraint firstAttribute="height" constant="20" id="e6R-hS-oUS"/>
                                 </constraints>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="u2E-V8-JkY">
-                                <rect key="frame" x="20" y="442" width="374" height="323"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="u2E-V8-JkY">
+                                <rect key="frame" x="20" y="442" width="374" height="300"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="323" id="xDu-w5-peD"/>
+                                    <constraint firstAttribute="height" constant="300" id="xDu-w5-peD"/>
                                 </constraints>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor"/>
@@ -152,7 +158,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cs9-g6-Zjr">
-                                <rect key="frame" x="75.5" y="821" width="263" height="40"/>
+                                <rect key="frame" x="75.5" y="752" width="263" height="40"/>
                                 <color key="backgroundColor" name="AccentColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="FXT-ay-s6f"/>
@@ -179,7 +185,7 @@
                             <constraint firstItem="OIb-aQ-Dgs" firstAttribute="top" secondItem="2hU-HA-0sm" secondAttribute="top" id="Dvx-gI-Nm7"/>
                             <constraint firstItem="u2E-V8-JkY" firstAttribute="top" secondItem="yVJ-sd-HWo" secondAttribute="bottom" constant="16" id="IAl-jm-LKv"/>
                             <constraint firstItem="8b3-nM-BkR" firstAttribute="leading" secondItem="yVJ-sd-HWo" secondAttribute="trailing" constant="16" id="LpL-C8-2Y8"/>
-                            <constraint firstItem="Cs9-g6-Zjr" firstAttribute="top" secondItem="u2E-V8-JkY" secondAttribute="bottom" constant="56" id="QUQ-wi-KwN"/>
+                            <constraint firstItem="Cs9-g6-Zjr" firstAttribute="top" secondItem="u2E-V8-JkY" secondAttribute="bottom" constant="10" id="QUQ-wi-KwN"/>
                             <constraint firstItem="yVJ-sd-HWo" firstAttribute="top" secondItem="VbQ-2g-KMw" secondAttribute="bottom" constant="8" id="Sbu-P2-uR2"/>
                             <constraint firstItem="8b3-nM-BkR" firstAttribute="top" secondItem="yVJ-sd-HWo" secondAttribute="top" id="bTH-cO-kGY"/>
                             <constraint firstItem="ai9-mf-8Ap" firstAttribute="trailing" secondItem="OIb-aQ-Dgs" secondAttribute="trailing" constant="38" id="cij-zF-HV6"/>
@@ -197,10 +203,21 @@
                     </view>
                     <navigationItem key="navigationItem" id="4Xg-bP-07A">
                         <rightBarButtonItems>
-                            <barButtonItem title="favButton" image="heart" catalog="system" id="9OV-3H-qj5"/>
+                            <barButtonItem title="favButton" image="heart" catalog="system" id="9OV-3H-qj5">
+                                <connections>
+                                    <action selector="btn_Fav:" destination="ILY-EK-5ov" id="tMg-6p-ZgD"/>
+                                </connections>
+                            </barButtonItem>
                             <barButtonItem title="shareButton" image="square.and.arrow.up" catalog="system" id="qJb-AF-nUu"/>
                         </rightBarButtonItems>
                     </navigationItem>
+                    <connections>
+                        <outlet property="iv_NewsImage" destination="bbG-qd-bSX" id="P9a-Ln-R5U"/>
+                        <outlet property="lbl_Date" destination="OIb-aQ-Dgs" id="Ig6-Zz-hsT"/>
+                        <outlet property="lbl_Source" destination="8b3-nM-BkR" id="mG7-SV-CMs"/>
+                        <outlet property="txt_Description" destination="u2E-V8-JkY" id="647-RF-YDs"/>
+                        <outlet property="txt_Title" destination="VbQ-2g-KMw" id="fjH-ds-cmj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="067-hT-KoM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -264,7 +281,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="7Ik-Xu-Pgs"/>
+        <segue reference="fu1-bf-dd0"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="calendar" catalog="system" width="128" height="106"/>
