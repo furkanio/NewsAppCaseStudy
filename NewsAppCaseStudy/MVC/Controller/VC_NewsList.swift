@@ -21,13 +21,6 @@ class VC_NewsList: UIViewController {
       return searchController.searchBar.text?.isEmpty ?? true
     }
     
-    var isFiltering: Bool {
-      return searchController.isActive && !isSearchBarEmpty
-    }
-    
-    var orginalGetData : NewsResponse?
-    var updatedGetData : NewsResponse?
-
     var newsArticle : [Article] = [Article]()
     
     override func viewDidLoad() {
@@ -41,9 +34,6 @@ class VC_NewsList: UIViewController {
         fetchBesiktasNews()
         searchBarCreate()
         prepareSearchHelper()
-
-        
-        
     }
     
     func searchBarCreate(){
@@ -85,8 +75,6 @@ class VC_NewsList: UIViewController {
     }
         })
     }
-
-
 }
 
 extension VC_NewsList: UITableViewDelegate, UITableViewDataSource {
@@ -97,7 +85,6 @@ extension VC_NewsList: UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let c = newsArticle[indexPath.row]
         
         let cell = Bundle.main.loadNibNamed("TVC_NewsList", owner: self, options: nil)?.first as! TVC_NewsList
@@ -148,10 +135,6 @@ extension VC_NewsList: UITableViewDelegate, UITableViewDataSource {
             }
                     }
     }
-    
-    
-    
-    
 }
 
 extension VC_NewsList : UISearchResultsUpdating {
@@ -173,22 +156,19 @@ extension VC_NewsList: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         
         searchController.isActive = false
-        
         if let searchText = searchBar.text {
             searchHelper?.handleTyping(text: searchText)
-
         }
-        
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        
         searchController.isActive = false
-        fetchBesiktasNews()
-    
         
-        
-        
+        if isSearchBarEmpty  {
+            fetchBesiktasNews()
+
+        }
+
     }
     
     
