@@ -77,6 +77,7 @@ class VC_NewsList: UIViewController {
     }
 }
 
+//MARK: TableView Operations
 extension VC_NewsList: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -95,6 +96,7 @@ extension VC_NewsList: UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         performSegue(withIdentifier: Constants.shared.segueListToDetail, sender: indexPath.row)
     }
     
@@ -143,11 +145,7 @@ extension VC_NewsList : UISearchResultsUpdating {
         
         if let searchText = searchController.searchBar.text {
             searchHelper?.handleTyping(text: searchText)
-
-            print(searchText)
-
         }
-        
     }
 }
 
@@ -166,11 +164,7 @@ extension VC_NewsList: UISearchBarDelegate {
         
         if isSearchBarEmpty  {
             fetchBesiktasNews()
-
         }
-
     }
-    
-    
 }
 

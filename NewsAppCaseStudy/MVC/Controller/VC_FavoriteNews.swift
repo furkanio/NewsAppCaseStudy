@@ -30,6 +30,7 @@ class VC_FavoriteNews: UIViewController {
     }
 }
 
+//MARK: TableView Operations
 extension VC_FavoriteNews : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return coreDataModel.count
